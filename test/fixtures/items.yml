@@ -1,0 +1,51 @@
+one:
+  
+    name: MyString
+  
+  
+    code: MyString
+  
+  
+    supplier_id: 
+  
+  
+    category_id: 
+  
+  
+    price_ex_vat: 9.99
+  
+  
+    price_inc_vat: 9.99
+  
+  
+    quantity: 9.99
+  
+  
+    units: MyString
+  
+
+two:
+  
+    name: MyString
+  
+  
+    code: MyString
+  
+  
+    supplier_id: 
+  
+  
+    category_id: 
+  
+  
+    price_ex_vat: 9.99
+  
+  
+    price_inc_vat: 9.99
+  
+  
+    quantity: 9.99
+  
+  
+    units: MyString
+  

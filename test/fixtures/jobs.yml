@@ -1,0 +1,39 @@
+one:
+  
+    name: MyString
+  
+  
+    address: MyText
+  
+  
+    client_id: 
+  
+  
+    rooms: 
+  
+  
+    invoices: 
+  
+  
+    markup: 9.99
+  
+
+two:
+  
+    name: MyString
+  
+  
+    address: MyText
+  
+  
+    client_id: 
+  
+  
+    rooms: 
+  
+  
+    invoices: 
+  
+  
+    markup: 9.99
+  

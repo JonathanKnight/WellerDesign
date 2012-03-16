@@ -1,0 +1,23 @@
+  <div class="field subform">
+    <%= f.collection_select(:element_id,Element.all, :id, :name ) %>
+  </div>
+  <div class="field subform">
+    <%= f.datetime_select :duedate %>
+  </div>
+  <div class="field subform">
+    <%= f.text_field :quantity %>
+  </div>
+  <div class="field subform">
+    <%= f.text_field :price_ex_vat %>
+  </div>
+  <div class="field subform">
+    <%= f.text_field :price_inc_vat %>
+  </div>
+  <div class="field subform">
+    <%= f.datetime_select :completed_at %>
+  </div>
+  <div class="field subform">
+    <%= f.collection_select(:purchase_order_id,Purchase_order.all, :id, :name ) %>
+  </div>
+  <div class="actions subform"><%= f.link_to_remove "Remove" %></div>
+<% end %>

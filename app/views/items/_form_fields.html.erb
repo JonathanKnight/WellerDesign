@@ -1,0 +1,26 @@
+  <div class="field subform">
+    <%= f.text_field :name %>
+  </div>
+  <div class="field subform">
+    <%= f.text_field :code %>
+  </div>
+  <div class="field subform">
+    <%= f.collection_select(:supplier_id,Supplier.all, :id, :name ) %>
+  </div>
+  <div class="field subform">
+    <%= f.collection_select(:category_id,Category.all, :id, :name ) %>
+  </div>
+  <div class="field subform">
+    <%= f.text_field :price_ex_vat %>
+  </div>
+  <div class="field subform">
+    <%= f.text_field :price_inc_vat %>
+  </div>
+  <div class="field subform">
+    <%= f.text_field :quantity %>
+  </div>
+  <div class="field subform">
+    <%= f.text_field :units %>
+  </div>
+  <div class="actions subform"><%= f.link_to_remove "Remove" %></div>
+<% end %>

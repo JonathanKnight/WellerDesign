@@ -1,0 +1,37 @@
+<h1>Element</h1>
+
+<p>
+  <b>Estimate</b><br>
+  <%= @element.estimate_id %>
+</p>
+
+<p>
+  <b>Item</b><br>
+  <%= @element.item_id %>
+</p>
+
+<p>
+  <b>Quantity</b><br>
+  <%= @element.quantity %>
+</p>
+
+<p>
+  <b>Due at</b><br>
+  <%= @element.due_at %>
+</p>
+
+<p>
+  <b>Completed at</b><br>
+  <%= @element.completed_at %>
+</p>
+
+<p>
+  <b>Deleted at</b><br>
+  <%= @element.deleted_at %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', elements_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_element_path(@element), :class => 'btn' %>
+  <%= link_to 'Delete', element_path(@element), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

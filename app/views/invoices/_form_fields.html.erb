@@ -1,0 +1,8 @@
+  <div class="field subform">
+    <%= f.collection_select(:job_id,Job.all, :id, :name ) %>
+  </div>
+  <div class="field subform">
+    <%= f.datetime_select :sent_at %>
+  </div>
+  <div class="actions subform"><%= f.link_to_remove "Remove" %></div>
+<% end %>

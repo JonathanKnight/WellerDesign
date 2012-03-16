@@ -1,0 +1,39 @@
+one:
+  
+    user_id: 
+  
+  
+    element_id: 
+  
+  
+    description: MyString
+  
+  
+    opened_at: 2012-03-16 18:12:55
+  
+  
+    closed_at: 2012-03-16 18:12:55
+  
+  
+    chargeable: false
+  
+
+two:
+  
+    user_id: 
+  
+  
+    element_id: 
+  
+  
+    description: MyString
+  
+  
+    opened_at: 2012-03-16 18:12:55
+  
+  
+    closed_at: 2012-03-16 18:12:55
+  
+  
+    chargeable: false
+  

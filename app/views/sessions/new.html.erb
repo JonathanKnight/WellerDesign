@@ -1,0 +1,15 @@
+<% title "Log in" %>
+
+<p>Don't have an account? <%= link_to "Sign up!", signup_path %></p>
+
+<%= form_tag sessions_path do %>
+  <div class="field">
+    <%= label_tag :login, "Username or Email Address" %>
+    <%= text_field_tag :login, params[:login] %>
+  </div>
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+  <div class="actions"><%= submit_tag "Log in" %></div>
+<% end %>

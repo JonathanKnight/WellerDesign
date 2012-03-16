@@ -1,0 +1,37 @@
+<h1>Timesheet</h1>
+
+<p>
+  <b>User</b><br>
+  <%= @timesheet.user_id %>
+</p>
+
+<p>
+  <b>Element</b><br>
+  <%= @timesheet.element_id %>
+</p>
+
+<p>
+  <b>Description</b><br>
+  <%= @timesheet.description %>
+</p>
+
+<p>
+  <b>Opened at</b><br>
+  <%= @timesheet.opened_at %>
+</p>
+
+<p>
+  <b>Closed at</b><br>
+  <%= @timesheet.closed_at %>
+</p>
+
+<p>
+  <b>Chargeable</b><br>
+  <%= @timesheet.chargeable %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', timesheets_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_timesheet_path(@timesheet), :class => 'btn' %>
+  <%= link_to 'Delete', timesheet_path(@timesheet), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

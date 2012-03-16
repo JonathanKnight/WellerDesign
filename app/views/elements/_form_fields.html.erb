@@ -1,0 +1,20 @@
+  <div class="field subform">
+    <%= f.collection_select(:estimate_id,Estimate.all, :id, :name ) %>
+  </div>
+  <div class="field subform">
+    <%= f.collection_select(:item_id,Item.all, :id, :name ) %>
+  </div>
+  <div class="field subform">
+    <%= f.text_field :quantity %>
+  </div>
+  <div class="field subform">
+    <%= f.datetime_select :due_at %>
+  </div>
+  <div class="field subform">
+    <%= f.datetime_select :completed_at %>
+  </div>
+  <div class="field subform">
+    <%= f.datetime_select :deleted_at %>
+  </div>
+  <div class="actions subform"><%= f.link_to_remove "Remove" %></div>
+<% end %>

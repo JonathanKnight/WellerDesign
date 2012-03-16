@@ -1,0 +1,42 @@
+<h1>Purchase</h1>
+
+<p>
+  <b>Element</b><br>
+  <%= @purchase.element_id %>
+</p>
+
+<p>
+  <b>Duedate</b><br>
+  <%= @purchase.duedate %>
+</p>
+
+<p>
+  <b>Quantity</b><br>
+  <%= @purchase.quantity %>
+</p>
+
+<p>
+  <b>Price ex vat</b><br>
+  <%= @purchase.price_ex_vat %>
+</p>
+
+<p>
+  <b>Price inc vat</b><br>
+  <%= @purchase.price_inc_vat %>
+</p>
+
+<p>
+  <b>Completed at</b><br>
+  <%= @purchase.completed_at %>
+</p>
+
+<p>
+  <b>Purchase order</b><br>
+  <%= @purchase.purchase_order_id %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', purchases_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_purchase_path(@purchase), :class => 'btn' %>
+  <%= link_to 'Delete', purchase_path(@purchase), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

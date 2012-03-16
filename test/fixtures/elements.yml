@@ -1,0 +1,45 @@
+one:
+  
+    estimate_id: 
+  
+  
+    item_id: 
+  
+  
+    quantity: 9.99
+  
+  
+    due_at: 2012-03-16 18:12:23
+  
+  
+    completed_at: 2012-03-16 18:12:23
+  
+  
+    purchase: 
+  
+  
+    deleted_at: 2012-03-16 18:12:23
+  
+
+two:
+  
+    estimate_id: 
+  
+  
+    item_id: 
+  
+  
+    quantity: 9.99
+  
+  
+    due_at: 2012-03-16 18:12:23
+  
+  
+    completed_at: 2012-03-16 18:12:23
+  
+  
+    purchase: 
+  
+  
+    deleted_at: 2012-03-16 18:12:23
+  

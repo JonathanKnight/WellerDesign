@@ -1,0 +1,26 @@
+<h1>Timesheets</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>User</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @timesheets.each do |timesheet| %>
+      <tr>
+        <td><%= timesheet.id %></td>
+        <td><%= link_to timesheet.user_id, timesheet_path(timesheet) %></td>
+        <td><%= timesheet.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_timesheet_path(timesheet), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', timesheet_path(timesheet), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_timesheet_path, :class => 'btn btn-primary' %>

@@ -1,0 +1,17 @@
+<h1>Invoice</h1>
+
+<p>
+  <b>Job</b><br>
+  <%= @invoice.job_id %>
+</p>
+
+<p>
+  <b>Sent at</b><br>
+  <%= @invoice.sent_at %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', invoices_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_invoice_path(@invoice), :class => 'btn' %>
+  <%= link_to 'Delete', invoice_path(@invoice), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

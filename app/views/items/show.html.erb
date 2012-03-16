@@ -1,0 +1,47 @@
+<h1>Item</h1>
+
+<p>
+  <b>Name</b><br>
+  <%= @item.name %>
+</p>
+
+<p>
+  <b>Code</b><br>
+  <%= @item.code %>
+</p>
+
+<p>
+  <b>Supplier</b><br>
+  <%= @item.supplier_id %>
+</p>
+
+<p>
+  <b>Category</b><br>
+  <%= @item.category_id %>
+</p>
+
+<p>
+  <b>Price ex vat</b><br>
+  <%= @item.price_ex_vat %>
+</p>
+
+<p>
+  <b>Price inc vat</b><br>
+  <%= @item.price_inc_vat %>
+</p>
+
+<p>
+  <b>Quantity</b><br>
+  <%= @item.quantity %>
+</p>
+
+<p>
+  <b>Units</b><br>
+  <%= @item.units %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', items_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_item_path(@item), :class => 'btn' %>
+  <%= link_to 'Delete', item_path(@item), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

@@ -1,0 +1,22 @@
+<h1>Purchaseorder</h1>
+
+<p>
+  <b>Supplier</b><br>
+  <%= @purchaseorder.supplier_id %>
+</p>
+
+<p>
+  <b>Sent at</b><br>
+  <%= @purchaseorder.sent_at %>
+</p>
+
+<p>
+  <b>Instructions</b><br>
+  <%= @purchaseorder.instructions %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', purchaseorders_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_purchaseorder_path(@purchaseorder), :class => 'btn' %>
+  <%= link_to 'Delete', purchaseorder_path(@purchaseorder), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

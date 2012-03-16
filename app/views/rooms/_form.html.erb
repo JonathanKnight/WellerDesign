@@ -1,0 +1,52 @@
+<%= form_for @room, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Room</legend>
+
+    <div class="control-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :job_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :job_id, :class => 'number_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :width, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :width, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :length, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :length, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :height, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :height, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :windows, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :windows, :class => 'number_field' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', rooms_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

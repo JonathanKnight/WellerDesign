@@ -1,0 +1,17 @@
+<h1>Client</h1>
+
+<p>
+  <b>Name</b><br>
+  <%= @client.name %>
+</p>
+
+<p>
+  <b>Email</b><br>
+  <%= @client.email %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', clients_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_client_path(@client), :class => 'btn' %>
+  <%= link_to 'Delete', client_path(@client), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

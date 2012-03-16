@@ -1,0 +1,12 @@
+    <tr>
+      <td><%= purchase.element.name %></td>
+      <td><%= purchase.duedate %></td>
+      <td><%= purchase.quantity %></td>
+      <td><%= purchase.price_ex_vat %></td>
+      <td><%= purchase.price_inc_vat %></td>
+      <td><%= purchase.completed_at %></td>
+      <td><%= purchase.purchase_order.name %></td>
+      <td><%= link_to "Edit", edit_purchase_path(purchase) %></td>
+    </tr>
+
+

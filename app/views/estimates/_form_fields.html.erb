@@ -1,0 +1,11 @@
+  <div class="field subform">
+    <%= f.text_field :name %>
+  </div>
+  <div class="field subform">
+    <%= f.collection_select(:room_id,Room.all, :id, :name ) %>
+  </div>
+  <div class="field subform">
+    <%= f.collection_select(:sale_id,Sale.all, :id, :name ) %>
+  </div>
+  <div class="actions subform"><%= f.link_to_remove "Remove" %></div>
+<% end %>

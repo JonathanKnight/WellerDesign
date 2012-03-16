@@ -1,0 +1,26 @@
+<h1>Invoices</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Job</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @invoices.each do |invoice| %>
+      <tr>
+        <td><%= invoice.id %></td>
+        <td><%= link_to invoice.job_id, invoice_path(invoice) %></td>
+        <td><%= invoice.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_invoice_path(invoice), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', invoice_path(invoice), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_invoice_path, :class => 'btn btn-primary' %>

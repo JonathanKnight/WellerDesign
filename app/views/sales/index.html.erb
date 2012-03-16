@@ -1,0 +1,26 @@
+<h1>Sales</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Quantity</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sales.each do |sale| %>
+      <tr>
+        <td><%= sale.id %></td>
+        <td><%= link_to sale.quantity, sale_path(sale) %></td>
+        <td><%= sale.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_sale_path(sale), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', sale_path(sale), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_sale_path, :class => 'btn btn-primary' %>

@@ -1,0 +1,26 @@
+<h1>Purchaseorders</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Supplier</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @purchaseorders.each do |purchaseorder| %>
+      <tr>
+        <td><%= purchaseorder.id %></td>
+        <td><%= link_to purchaseorder.supplier_id, purchaseorder_path(purchaseorder) %></td>
+        <td><%= purchaseorder.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_purchaseorder_path(purchaseorder), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', purchaseorder_path(purchaseorder), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_purchaseorder_path, :class => 'btn btn-primary' %>

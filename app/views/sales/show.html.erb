@@ -1,0 +1,27 @@
+<h1>Sale</h1>
+
+<p>
+  <b>Quantity</b><br>
+  <%= @sale.quantity %>
+</p>
+
+<p>
+  <b>Price ex vat</b><br>
+  <%= @sale.price_ex_vat %>
+</p>
+
+<p>
+  <b>Price inc vat</b><br>
+  <%= @sale.price_inc_vat %>
+</p>
+
+<p>
+  <b>Invoice</b><br>
+  <%= @sale.invoice_id %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', sales_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_sale_path(@sale), :class => 'btn' %>
+  <%= link_to 'Delete', sale_path(@sale), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

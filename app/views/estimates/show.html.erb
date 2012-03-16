@@ -1,0 +1,22 @@
+<h1>Estimate</h1>
+
+<p>
+  <b>Name</b><br>
+  <%= @estimate.name %>
+</p>
+
+<p>
+  <b>Room</b><br>
+  <%= @estimate.room_id %>
+</p>
+
+<p>
+  <b>Sale</b><br>
+  <%= @estimate.sale_id %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', estimates_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_estimate_path(@estimate), :class => 'btn' %>
+  <%= link_to 'Delete', estimate_path(@estimate), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

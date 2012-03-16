@@ -1,0 +1,26 @@
+<h1>Templates</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @templates.each do |template| %>
+      <tr>
+        <td><%= template.id %></td>
+        <td><%= link_to template.name, template_path(template) %></td>
+        <td><%= template.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_template_path(template), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', template_path(template), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_template_path, :class => 'btn btn-primary' %>

@@ -1,0 +1,11 @@
+    <tr>
+      <td><%= timesheet.user.name %></td>
+      <td><%= timesheet.element.name %></td>
+      <td><%= timesheet.description %></td>
+      <td><%= timesheet.opened_at %></td>
+      <td><%= timesheet.closed_at %></td>
+      <td><%= timesheet.chargeable %></td>
+      <td><%= link_to "Edit", edit_timesheet_path(timesheet) %></td>
+    </tr>
+
+

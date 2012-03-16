@@ -1,0 +1,13 @@
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= item.code %></td>
+      <td><%= item.supplier.name %></td>
+      <td><%= item.category.name %></td>
+      <td><%= item.price_ex_vat %></td>
+      <td><%= item.price_inc_vat %></td>
+      <td><%= item.quantity %></td>
+      <td><%= item.units %></td>
+      <td><%= link_to "Edit", edit_item_path(item) %></td>
+    </tr>
+
+

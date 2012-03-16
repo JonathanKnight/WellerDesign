@@ -1,0 +1,20 @@
+  <div class="field subform">
+    <%= f.text_field :name %>
+  </div>
+  <div class="field subform">
+    <%= f.collection_select(:job_id,Job.all, :id, :name ) %>
+  </div>
+  <div class="field subform">
+    <%= f.text_field :width %>
+  </div>
+  <div class="field subform">
+    <%= f.text_field :length %>
+  </div>
+  <div class="field subform">
+    <%= f.text_field :height %>
+  </div>
+  <div class="field subform">
+    <%= f.number_field :windows %>
+  </div>
+  <div class="actions subform"><%= f.link_to_remove "Remove" %></div>
+<% end %>
