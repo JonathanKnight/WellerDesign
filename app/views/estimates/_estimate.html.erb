@@ -2,6 +2,7 @@
       <td><%= link_to estimate.name, estimate_path(estimate) %></td>
       <td><%= estimate.room.name %></td>
       <td><%= estimate.value.map{ |x| number_to_currency(x,:locale => 'en' )} %></td>
+      <td><%= estimate.elements.count %></td>
       <td><%= estimate.sale %></td>
         <td>
           <%= link_to 'Edit', edit_estimate_path(estimate), :class => 'btn btn-mini' %>
