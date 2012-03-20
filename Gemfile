@@ -43,3 +43,4 @@ gem "twitter-bootstrap-rails", :group => "assets"
 gem "will_paginate"
 
 gem "mocha", :group => :test
+gem "bcrypt-ruby", :require => 'bcrypt'

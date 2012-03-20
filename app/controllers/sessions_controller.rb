@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:login], params[:password])
     if user
       session[:user_id] = user.id
-      session[:current_timesheet] = Timesheet.current_task(user.id)
+      #session[:current_timesheet] = Timesheet.current_task(user.id)
 
-      redirect_to_target_or_default root_url, :notice => "Logged in successfully."
+      redirect_to_target_or_default timesheets_path, :notice => "Logged in successfully."
     else
       flash.now[:alert] = "Invalid login or password."
       render :new
@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, :notice => "You have been logged out."
+    redirect_to login_path, :notice => "You have been logged out."
   end
 end

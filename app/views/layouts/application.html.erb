@@ -19,7 +19,7 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
 
     <!-- Le fav and touch icons -->
-    <link href="images/favicon.ico" rel="shortcut icon">
+    <!--<link href="images/favicon.ico" rel="shortcut icon"> -->
     <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
     <link href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
     <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
@@ -42,9 +42,13 @@
                 <li><%= link_to "Link3", "/path3"  %></li>
             </ul>
             <ul class="nav pull-right">
-                <li>Jonathan Knight</li>
+                <% if current_user %>
+                <li><%= link_to current_user.email, "/timesheets" %></li>
                 <li>|</li>
-                <li><%= link_to "Logout", "/path4" %></li>
+                <li><%= link_to "Logout", "/logout" %></li>
+                <% else %>
+                <li><%= link_to "Log In", "/login" %></li>
+                <% end %>
             </ul>
           </div><!--/.nav-collapse -->
 
@@ -54,7 +58,7 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
+        <div class="span2">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Timesheets</li>
@@ -64,7 +68,13 @@
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span9">
+        <div class="span10">
+          <% flash.each do |name, msg| %>
+          <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+            <a class="close" data-dismiss="alert">  
+            <%= msg  %>
+          </div>
+          <% end %>
           <%= yield %>
         </div>
       </div><!--/row-->

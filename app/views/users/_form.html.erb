@@ -1,20 +1,7 @@
-<%= form_for @user do |f| %>
-  <%= f.error_messages %>
-  <div class="field">
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :email, "Email Address" %>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm Password" %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions"><%= f.submit (@user.new_record? ? "Sign up" : "Update") %></div>
+<%= simple_form_for @user , :html => { :class => 'form-horizontal' } do |f|%>
+  <%= f.input :username %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.button :submit %>
 <% end %>

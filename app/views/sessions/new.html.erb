@@ -1,6 +1,6 @@
-<% title "Log in" %>
+<h2>Log in to Weller Interior Design</h2>
 
-<p>Don't have an account? <%= link_to "Sign up!", signup_path %></p>
+<!--<p>Don't have an account? <%= link_to "Sign up!", signup_path %></p>-->
 
 <%= form_tag sessions_path do %>
   <div class="field">
@@ -11,5 +11,8 @@
     <%= label_tag :password %>
     <%= password_field_tag :password %>
   </div>
+  <!---<button class="btn btn-primary" type="submit">Sign in</button>-->
   <div class="actions"><%= submit_tag "Log in" %></div>
 <% end %>
+
+

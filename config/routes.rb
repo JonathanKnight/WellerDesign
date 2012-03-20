@@ -38,6 +38,8 @@ WellerInteriorDesign::Application.routes.draw do
   resources :sessions
 
   resources :users
+  
+  root :to => 'sessions#new', :as => :login
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

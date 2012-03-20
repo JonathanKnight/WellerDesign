@@ -9,8 +9,8 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-        @item.supplier_id = params[:supplier_id]
-        @item.category_id = params[:category_id]
+    @item.supplier_id = params[:supplier_id]
+    @item.category_id = params[:category_id]
   end
 
   def create
