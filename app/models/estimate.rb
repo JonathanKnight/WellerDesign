@@ -7,6 +7,30 @@ class Estimate < ActiveRecord::Base
   belongs_to :sale
   validates_presence_of :name,:room_id
   
+  def quantity
+    if self.elements.count == 1
+      self.elements.first.quantity
+    else
+      1
+    end
+  end
+  
+  def price_ex_vat
+    if self.elements.count == 1
+      self.elements.first.price_ex_vat
+    else
+      self.value[0]
+    end
+  end
+  
+  def price_inc_vat
+    if self.elements.count == 1
+      self.elements.first.price_inc_vat
+    else
+      self.value[1]
+    end
+  end
+  
   def value
     v = [0,0]
     self.elements.each do |element|
@@ -15,6 +39,24 @@ class Estimate < ActiveRecord::Base
       v[1] += evalue[1]
     end
     v
+  end
+  
+  def started
+    self.elements.each do |element|
+      if element.purchase
+        return true
+      end
+    end
+    return false
+  end
+  
+  def finished
+    self.elements.each do |element|
+      if element.purchase.nil?
+        return false
+      end
+    end
+    return true
   end
   
   def self.make_estimate(type)

@@ -15,6 +15,12 @@
   <%= @estimate.sale_id %>
 </p>
 
+<p>
+  <b>Value</b><br>
+  <%= @estimate.value.map{ |x| number_to_currency(x, :locale => 'en')} %>
+</p>
+
+
 <h2>Elements</h2>
 <%= page_navigation_links @elements %>
 
@@ -24,7 +30,7 @@
     <% end %>
 <%= render "elements/element_footer" %>
 
-<%= link_to 'Add Item', new_element_path(:estimate_id => @estimate.id), :class => 'btn' %>
+<%= link_to 'Add Item', new_element_path(:estimate_id => @estimate.id), :class => 'btn btn-primary' %>
 
 <div class="form-actions">
   <%= link_to 'Back', estimates_path, :class => 'btn'  %>

@@ -9,8 +9,11 @@ class ElementsController < ApplicationController
 
   def new
     @element = Element.new
-        @element.estimate_id = params[:estimate_id]
-        @element.item_id = params[:item_id]
+    @element.estimate_id = params[:estimate_id]
+    @element.item_id = params[:item_id]
+    @element.due_at = nil
+    @element.completed_at = nil
+    @element.deleted_at = nil
   end
 
   def create

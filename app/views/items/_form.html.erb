@@ -4,8 +4,8 @@
 
     <%= f.input :name %>
     <%= f.input :code %>
-    <%= f.input :supplier_id %>
-    <%= f.input :category_id %>
+    <%= f.association :supplier %>
+    <%= f.association :category %>
     <%= f.input :price_ex_vat %>
     <%= f.input :price_inc_vat %>
     <%= f.input :quantity %>

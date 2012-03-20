@@ -17,6 +17,14 @@ class Room < ActiveRecord::Base
     v
   end
 
+  def started
+    self.estimates.each do |estimate|
+      if estimate.started
+        return true
+      end
+    end
+    return false
+  end
 
   def self.make_estimate
     @templates = Template.where(:name => 'Room')

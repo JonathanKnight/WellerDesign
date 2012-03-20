@@ -20,6 +20,12 @@
   <%= @job.markup %>
 </p>
 
+<p>
+  <b>Value</b><br>
+  <%= @job.value.map{ |x| number_to_currency(x)}.join(" / ") %>
+</p>
+
+
 <h2>Rooms</h2>
 
 <%= render "rooms/room_titles" %>

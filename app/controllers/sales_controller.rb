@@ -9,7 +9,9 @@ class SalesController < ApplicationController
 
   def new
     @sale = Sale.new
-        @sale.invoice_id = params[:invoice_id]
+    @sale.quantity = params[:quantity]
+    @sale.price_ex_vat = params[:price_ex_vat]
+    @sale.price_inc_vat = params[:price_inc_vat]
   end
 
   def create

@@ -2,12 +2,12 @@
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Element</legend>
 
-    <%= f.input :estimate_id %>
+    <%= f.association :estimate %>
     <%= f.association :item %>
     <%= f.input :quantity %>
-    <%= f.input :due_at, :as => :date %>
-    <%= f.input :completed_at, :as => :date %>
-    <%= f.input :deleted_at, :as => :date %>
+    <%= f.input :due_at, :as => :date , :value => nil%>
+    <%= f.input :completed_at, :as => :date, :value => nil %>
+    <%= f.input :deleted_at, :as => :date , :value => nil %>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>

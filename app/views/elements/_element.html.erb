@@ -17,7 +17,9 @@
           <%= link_to 'Destroy', element_path(element), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
         </td>
         <% else %>
-        <td></td>
+        <td>
+          <%= link_to 'Completed', purchase_path(element.purchase, :completed_at => Time.now), :class => 'btn btn-primary btn-mini' %>       
+        </td>
         <% end %>
     </tr>
 
