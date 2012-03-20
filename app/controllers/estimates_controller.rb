@@ -5,12 +5,13 @@ class EstimatesController < ApplicationController
 
   def show
     @estimate = Estimate.find(params[:id])
+    @elements = @estimate.elements.page(params[:page]).per_page(15)
   end
 
   def new
     @estimate = Estimate.new
-        @estimate.room_id = params[:room_id]
-        @estimate.sale_id = params[:sale_id]
+    @estimate.room_id = params[:room_id]
+    @estimate.sale_id = params[:sale_id]
   end
 
   def create

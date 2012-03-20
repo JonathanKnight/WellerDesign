@@ -20,8 +20,18 @@
   <%= @job.markup %>
 </p>
 
+<h2>Rooms</h2>
+
+<%= render "rooms/room_titles" %>
+    <% @rooms.each do |room| %>
+      <%= render room %>
+    <% end %>
+<%= render "rooms/room_footer" %>
+
+<%= link_to 'New room', new_room_path(:job_id => @job.id), :class => 'btn' %>
+
 <div class="form-actions">
-  <%= link_to 'Back', jobs_path, :class => 'btn'  %>
+  <%= link_to 'Back', @job.client, :class => 'btn'  %>
   <%= link_to 'Edit', edit_job_path(@job), :class => 'btn' %>
   <%= link_to 'Delete', job_path(@job), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>

@@ -2,15 +2,14 @@ class Element < ActiveRecord::Base
 
   attr_accessible :estimate_id, :item_id, :quantity, :due_at, :completed_at, :deleted_at
   belongs_to :estimate
-  
   belongs_to :item
-  
-  
-  
-  
   has_one :purchase
-  validates_presence_of :quantity, :element_id
+  validates_presence_of :quantity, :estimate_id,:item_id
   
+  def value
+    [self.quantity*self.item.price_ex_vat, self.quantity*self.item.price_inc_vat]
+  end
+
   def self.open_tasks
     Element.where(:purchase_id => nil).joins(:item => :supplier).where(:suppliers => {:id =>1})
   end

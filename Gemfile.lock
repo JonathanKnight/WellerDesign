@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/ryanb/nested_form.git
+  revision: 486e0f0e93f3ca455d5d0fc7869053257b6afce2
+  specs:
+    nested_form (0.2.0)
+
+GIT
   remote: git@github.com:JonathanKnight/nifty-generators.git
   revision: b40bcb34263348d887e0a67c73279c4467992e69
   specs:
@@ -135,6 +141,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
   mocha
+  nested_form!
   nifty-generators!
   rails (= 3.2.1)
   sass-rails (~> 3.2.3)

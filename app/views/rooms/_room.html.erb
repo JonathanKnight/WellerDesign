@@ -1,12 +1,15 @@
     <tr>
-      <td><%= room.name %></td>
+      <td><%= link_to room.name, room_path(room) %></td>
       <td><%= room.job.name %></td>
-      <td><%= room.estimates %></td>
+      <td><%= room.value.map{ |x| number_to_currency(x)} %></td>
       <td><%= room.width %></td>
       <td><%= room.length %></td>
       <td><%= room.height %></td>
       <td><%= room.windows %></td>
-      <td><%= link_to "Edit", edit_room_path(room) %></td>
+        <td>
+          <%= link_to 'Edit', edit_room_path(room), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', room_path(room), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
     </tr>
 
 

@@ -1,37 +1,21 @@
 <h1>Room</h1>
 
-<p>
-  <b>Name</b><br>
-  <%= @room.name %>
-</p>
+<%= render "rooms/room_titles" %>
+<%= render @room %>
+<%= render "rooms/room_footer" %>
 
-<p>
-  <b>Job</b><br>
-  <%= @room.job_id %>
-</p>
+<h2>Estimates</h2>
 
-<p>
-  <b>Width</b><br>
-  <%= @room.width %>
-</p>
+<%= render "estimates/estimate_titles" %>
+    <% @estimates.each do |estimate| %>
+      <%= render estimate %>
+    <% end %>
+<%= render "estimates/estimate_footer" %>
 
-<p>
-  <b>Length</b><br>
-  <%= @room.length %>
-</p>
-
-<p>
-  <b>Height</b><br>
-  <%= @room.height %>
-</p>
-
-<p>
-  <b>Windows</b><br>
-  <%= @room.windows %>
-</p>
+<%= link_to 'New estimate', new_estimate_path(:room_id => @room.id), :class => 'btn' %>
 
 <div class="form-actions">
-  <%= link_to 'Back', rooms_path, :class => 'btn'  %>
+  <%= link_to 'Back', @room.job, :class => 'btn'  %>
   <%= link_to 'Edit', edit_room_path(@room), :class => 'btn' %>
   <%= link_to 'Delete', room_path(@room), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>

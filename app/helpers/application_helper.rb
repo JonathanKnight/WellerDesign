@@ -22,4 +22,9 @@ module ApplicationHelper
   def page_navigation_links(pages)
     will_paginate(pages, :class => 'pagination', :inner_window => 2, :outer_window => 0, :renderer => BootstrapLinkRenderer, :previous_label => '&larr;'.html_safe, :next_label => '&rarr;'.html_safe)
   end
+  
+  def ihelper(in_string)
+    in_string ? l(in_string) : "None"
+  end
+  
 end
