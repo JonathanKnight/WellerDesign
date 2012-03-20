@@ -2,61 +2,14 @@
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Item</legend>
 
-    <div class="control-group">
-      <%= f.label :name, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :name, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :code, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :code, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :supplier_id, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.number_field :supplier_id, :class => 'number_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :category_id, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.number_field :category_id, :class => 'number_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :price_ex_vat, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :price_ex_vat, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :price_inc_vat, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :price_inc_vat, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :quantity, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :quantity, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :units, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :units, :class => 'text_field' %>
-      </div>
-    </div>
+    <%= f.input :name %>
+    <%= f.input :code %>
+    <%= f.input :supplier_id %>
+    <%= f.input :category_id %>
+    <%= f.input :price_ex_vat %>
+    <%= f.input :price_inc_vat %>
+    <%= f.input :quantity %>
+    <%= f.input :units %>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>

@@ -1,10 +1,11 @@
 class SuppliersController < ApplicationController
   def index
-    @suppliers = Supplier.all
+    @suppliers = Supplier.order("name").page(params[:page]).per_page(10)
   end
 
   def show
     @supplier = Supplier.find(params[:id])
+    @items = @supplier.items.order("name").page(params[:page]).per_page(10)
   end
 
   def new

@@ -1,10 +1,11 @@
 class ClientsController < ApplicationController
   def index
-    @clients = Client.all
+    @clients = Client.order("name").page(params[:page]).per_page(15)
   end
 
   def show
     @client = Client.find(params[:id])
+    @jobs = @client.jobs.order("name").page(params[:page]).per_page(15)
   end
 
   def new

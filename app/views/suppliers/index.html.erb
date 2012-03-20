@@ -1,26 +1,11 @@
 <h1>Suppliers</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Created at</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
+
+<%= page_navigation_links @suppliers %>
+
+<%= render "suppliers/supplier_titles" %>
     <% @suppliers.each do |supplier| %>
-      <tr>
-        <td><%= supplier.id %></td>
-        <td><%= link_to supplier.name, supplier_path(supplier) %></td>
-        <td><%= supplier.created_at %></td>
-        <td>
-          <%= link_to 'Edit', edit_supplier_path(supplier), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', supplier_path(supplier), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
+      <%= render supplier %>
     <% end %>
-  </tbody>
-</table>
+<%= render "suppliers/supplier_footer" %>
 
 <%= link_to 'New', new_supplier_path, :class => 'btn btn-primary' %>

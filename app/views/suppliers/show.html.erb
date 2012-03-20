@@ -15,8 +15,21 @@
   <%= @supplier.address %>
 </p>
 
+<%= page_navigation_links @items %>
+
+<%= render "items/item_titles" %>
+    <% @items.each do |item| %>
+      <%= render item %>
+    <% end %>
+<%= render "items/item_footer" %>
+
+<%= link_to 'New Item', new_item_path(:supplier_id => @supplier.id), :class => 'btn' %>
+
+
 <div class="form-actions">
   <%= link_to 'Back', suppliers_path, :class => 'btn'  %>
   <%= link_to 'Edit', edit_supplier_path(@supplier), :class => 'btn' %>
   <%= link_to 'Delete', supplier_path(@supplier), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>
+
+

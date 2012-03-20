@@ -1,10 +1,11 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.all
+    @jobs = Job.order("name").page(params[:page]).per_page(10)
   end
 
   def show
     @job = Job.find(params[:id])
+    @rooms = @job.rooms
   end
 
   def new
@@ -15,7 +16,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(params[:job])
     if @job.save
-      redirect_to jobs_url, :notice => "Successfully created job."
+      redirect_to @job.client, :notice => "Successfully created job."
     else
       render :new
     end
@@ -28,7 +29,7 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     if @job.update_attributes(params[:job])
-      redirect_to jobs_url, :notice  => "Successfully updated job."
+      redirect_to @job.client, :notice  => "Successfully updated job."
     else
       render :edit
     end

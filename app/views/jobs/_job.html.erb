@@ -1,11 +1,14 @@
     <tr>
-      <td><%= job.name %></td>
+      <td><%= link_to job.name, jobs_path(job) %></td>
       <td><%= job.address %></td>
       <td><%= job.client.name %></td>
-      <td><%= job.rooms %></td>
-      <td><%= job.invoices %></td>
+      <td><%= job.rooms.count %></td>
+      <td><%= job.invoices.count %></td>
       <td><%= job.markup %></td>
-      <td><%= link_to "Edit", edit_job_path(job) %></td>
-    </tr>
+        <td>
+          <%= link_to 'Edit', edit_job_path(job), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', job_path(job), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+     </tr>
 
 

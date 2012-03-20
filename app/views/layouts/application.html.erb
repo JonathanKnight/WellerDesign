@@ -37,9 +37,9 @@
           <a class="brand" href="#">Weller Interior Design</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-                <li><%= link_to "Link1", "/path1"  %></li>
-                <li><%= link_to "Link2", "/path2"  %></li>
-                <li><%= link_to "Link3", "/path3"  %></li>
+                <li><%= link_to "Suppliers", suppliers_path  %></li>
+                <li><%= link_to "Clients", clients_path  %></li>
+                <li><%= link_to "Jobs", jobs_path  %></li>
             </ul>
             <ul class="nav pull-right">
                 <% if current_user %>
@@ -57,6 +57,12 @@
     </div>
 
     <div class="container-fluid">
+              <% flash.each do |name, msg| %>
+          <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+            <a class="close" data-dismiss="alert"></a>  
+            <%= msg  %>
+          </div>
+                      <% end %>
       <div class="row-fluid">
         <div class="span2">
           <div class="well sidebar-nav">
@@ -69,12 +75,6 @@
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span10">
-          <% flash.each do |name, msg| %>
-          <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-            <a class="close" data-dismiss="alert">  
-            <%= msg  %>
-          </div>
-          <% end %>
           <%= yield %>
         </div>
       </div><!--/row-->

@@ -1,8 +1,11 @@
     <tr>
-      <td><%= client.name %></td>
+      <td><%= link_to client.name, client_path(client) %></td>
       <td><%= client.email %></td>
-      <td><%= client.jobs %></td>
-      <td><%= link_to "Edit", edit_client_path(client) %></td>
-    </tr>
+      <td><%= client.jobs.count %></td>
+         <td>
+          <%= link_to 'Edit', edit_client_path(client), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', client_path(client), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+   </tr>
 
 

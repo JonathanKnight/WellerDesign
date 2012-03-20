@@ -1,26 +1,12 @@
 <h1>Clients</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Created at</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
+
+<%= page_navigation_links @clients %>
+
+<%= render "clients/client_titles" %>
     <% @clients.each do |client| %>
-      <tr>
-        <td><%= client.id %></td>
-        <td><%= link_to client.name, client_path(client) %></td>
-        <td><%= client.created_at %></td>
-        <td>
-          <%= link_to 'Edit', edit_client_path(client), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', client_path(client), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
+      <%= render client %>
     <% end %>
-  </tbody>
-</table>
+<%= render "clients/client_footer" %>
+
 
 <%= link_to 'New', new_client_path, :class => 'btn btn-primary' %>

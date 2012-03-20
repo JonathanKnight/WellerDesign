@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(params[:item])
     if @item.save
-      redirect_to items_url, :notice => "Successfully created item."
+      redirect_to @item.supplier, :notice => "Successfully created item."
     else
       render :new
     end
@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update_attributes(params[:item])
-      redirect_to items_url, :notice  => "Successfully updated item."
+      redirect_to @item.supplier, :notice  => "Successfully updated item."
     else
       render :edit
     end
@@ -37,7 +37,8 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
+    @supplier = @item.supplier
     @item.destroy
-    redirect_to items_url, :notice => "Successfully destroyed item."
+    redirect_to @supplier, :notice => "Successfully destroyed item."
   end
 end

@@ -10,6 +10,16 @@
   <%= @client.email %>
 </p>
 
+<%= page_navigation_links @jobs %>
+
+<%= render "jobs/job_titles" %>
+    <% @jobs.each do |job| %>
+      <%= render job %>
+    <% end %>
+<%= render "jobs/job_footer" %>
+
+<%= link_to 'New job', new_job_path(:client_id => @client.id), :class => 'btn' %>
+
 <div class="form-actions">
   <%= link_to 'Back', clients_path, :class => 'btn'  %>
   <%= link_to 'Edit', edit_client_path(@client), :class => 'btn' %>
