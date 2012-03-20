@@ -1,55 +1,13 @@
-<%= form_for @purchase, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @purchase, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Purchase</legend>
 
-    <div class="control-group">
-      <%= f.label :element_id, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.number_field :element_id, :class => 'number_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :duedate, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.datetime_select :duedate, :class => 'datetime_select' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :quantity, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :quantity, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :price_ex_vat, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :price_ex_vat, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :price_inc_vat, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :price_inc_vat, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :completed_at, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.datetime_select :completed_at, :class => 'datetime_select' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :purchase_order_id, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.number_field :purchase_order_id, :class => 'number_field' %>
-      </div>
-    </div>
+    <%= f.association :element %>
+    <%= f.input :quantity %>
+    <%= f.input :price_ex_vat %>
+    <%= f.input :price_inc_vat %>
+    <%= f.input :duedate, :as => :date %>
+    <%= f.input :price_inc_vat %>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
