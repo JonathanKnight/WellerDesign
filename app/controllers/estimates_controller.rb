@@ -12,6 +12,7 @@ class EstimatesController < ApplicationController
     @estimate = Estimate.new
     @estimate.room_id = params[:room_id]
     @estimate.sale_id = params[:sale_id]
+    @estimate.elements.build
   end
 
   def create
@@ -25,6 +26,7 @@ class EstimatesController < ApplicationController
 
   def edit
     @estimate = Estimate.find(params[:id])
+    @elements = @estimate.elements
   end
 
   def update

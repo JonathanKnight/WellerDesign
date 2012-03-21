@@ -31,8 +31,8 @@
     </tr>
   </thead>
   <tbody>
-  <tr><td>Excluding VAT</td><td><%= @fullvalue[0][0] %></td><td><%= @fullvalue[1][0] %></td><td><%= @fullvalue[2][0] %></td><td><%= 0.00 %></td></tr>
-  <tr><td>Including VAT</td><td><%= @fullvalue[0][1] %></td><td><%= @fullvalue[1][1] %></td><td><%=@fullvalue[2][1] %></td><td><%= 0.00 %></td></tr>
+  <tr><td>Excluding VAT</td><td><%= ihelper @fullvalue[0][0] %></td><td><%= ihelper @fullvalue[1][0] %></td><td><%= ihelper @fullvalue[2][0] %></td><td><%= ihelper 0.00 %></td></tr>
+  <tr><td>Including VAT</td><td><%= ihelper @fullvalue[0][1] %></td><td><%= ihelper @fullvalue[1][1] %></td><td><%=ihelper @fullvalue[2][1] %></td><td><%= ihelper 0.00 %></td></tr>
   </tbody>
   </table>
 
