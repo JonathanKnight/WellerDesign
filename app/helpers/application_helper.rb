@@ -23,8 +23,16 @@ module ApplicationHelper
     will_paginate(pages, :class => 'pagination', :inner_window => 2, :outer_window => 0, :renderer => BootstrapLinkRenderer, :previous_label => '&larr;'.html_safe, :next_label => '&rarr;'.html_safe)
   end
   
-  def ihelper(in_string)
-    in_string ? l(in_string) : "None"
+  def ihelper(in_value)
+    if in_value.nil?
+      "None"
+    elsif in_value.acts_like?(:time)
+      l(in_value)
+    elsif in_value.instance_of? Array 
+      in_value.map{ |x| ihelper(x)}.join("/")
+    else
+      number_to_currency(in_value, :locale => 'en')
+    end
   end
   
 end

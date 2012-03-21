@@ -3,7 +3,7 @@
       <td><%= supplier.email %></td>
       <td><%= supplier.address %></td>
       <td><%= supplier.items.count %></td>
-      <td><%= supplier.purchase_orders.nil? %></td>
+      <td><%= supplier.purchaseorders.count %></td>
       <td><%= link_to "Edit", edit_supplier_path(supplier),:class => 'btn btn-mini' %></td>
       <td><%= link_to 'Destroy', supplier_path(supplier), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %></td>    
     </tr>

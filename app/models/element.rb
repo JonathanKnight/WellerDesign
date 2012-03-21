@@ -9,6 +9,7 @@ class Element < ActiveRecord::Base
   def value
     [self.quantity*self.item.price_ex_vat, self.quantity*self.item.price_inc_vat]
   end
+  
 
   def self.open_tasks
     Element.where(:purchase_id => nil).joins(:item => :supplier).where(:suppliers => {:id =>1})

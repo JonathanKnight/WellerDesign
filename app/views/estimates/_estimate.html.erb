@@ -1,9 +1,15 @@
     <tr>
       <td><%= link_to estimate.name, estimate_path(estimate) %></td>
       <td><%= estimate.room.name %></td>
-      <td><%= estimate.value.map{ |x| number_to_currency(x,:locale => 'en' )} %></td>
-      <td><%= estimate.elements.count %></td>
-      <td><%= estimate.sale %></td>
+      <td><%= estimate.quantities %></td>
+      <td><%= ihelper estimate.value %></td>
+      <% if estimate.sale %>
+      <td><%= ihelper estimate.sale.created_at %></td>
+      <td><%= ihelper estimate.sale.value %></td>
+      <% else %>
+      <td></td>
+      <td></td>
+      <% end %>
       <% if estimate.finished %>
       <td>
       <%= link_to 'Sell', new_sale_path(:estimate_id => estimate.id, :quantity => estimate.quantity,:price_ex_vat => estimate.price_ex_vat*estimate.room.job.markup, :price_inc_vat => estimate.price_inc_vat*estimate.room.job.markup),
