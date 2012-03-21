@@ -1,7 +1,7 @@
     <tr>
       <td><%= link_to room.name, room_path(room) %></td>
       <td><%= room.job.name %></td>
-      <td><%= room.value.map{ |x| number_to_currency(x)} %></td>
+      <td><%= ihelper room.value %></td>
       <td><%= room.estimates.count %></td>
       <td><%= room.width %></td>
       <td><%= room.length %></td>

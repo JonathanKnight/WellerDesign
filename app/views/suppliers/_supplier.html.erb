@@ -4,8 +4,14 @@
       <td><%= supplier.address %></td>
       <td><%= supplier.items.count %></td>
       <td><%= supplier.purchaseorders.count %></td>
-      <td><%= link_to "Edit", edit_supplier_path(supplier),:class => 'btn btn-mini' %></td>
-      <td><%= link_to 'Destroy', supplier_path(supplier), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %></td>    
+      <td><%= supplier.outstanding_purchases.count %></td>
+      <td>
+      <% if supplier.outstanding_purchases.count > 0 %>
+      <%= link_to "Create PO", new_purchaseorder_path(:supplier_id => supplier.id), :class => 'btn btn-mini btn-primary' %>
+      <% end %>
+      <%= link_to "Edit", edit_supplier_path(supplier),:class => 'btn btn-mini' %>
+      <%= link_to 'Destroy', supplier_path(supplier), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+      </td>    
     </tr>
 
 

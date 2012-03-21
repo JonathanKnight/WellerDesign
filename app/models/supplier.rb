@@ -7,7 +7,7 @@ class Supplier < ActiveRecord::Base
   accepts_nested_attributes_for :purchaseorders
   
   def outstanding_purchases
-    purchases = Purchase.joins(:element => :item).where(:items => {:supplier_id => self.id}).where(:purchaseorder => {:id => nil})
+    purchases = Purchase.where(:purchase_order_id => nil).joins(:element => :item).where(:items => {:supplier_id => self.id})
   end
   
 end

@@ -9,13 +9,17 @@ class PurchaseordersController < ApplicationController
 
   def new
     @purchaseorder = Purchaseorder.new
-        @purchaseorder.supplier_id = params[:supplier_id]
+    @purchaseorder.supplier_id = params[:supplier_id]
+    @supplier = Supplier.find(params[:supplier_id])
+    @purchases = @supplier.outstanding_purchases
   end
 
   def create
     @purchaseorder = Purchaseorder.new(params[:purchaseorder])
     if @purchaseorder.save
-      redirect_to purchaseorders_url, :notice => "Successfully created purchaseorder."
+      @purchases = Supplier.find(@purchaseorder.supplier_id)
+      @purchases.update_attributes(:purchase_order_id => @purchaseorder.id)
+      redirect_to suppliers_url, :notice => "Successfully created purchaseorder."
     else
       render :new
     end
