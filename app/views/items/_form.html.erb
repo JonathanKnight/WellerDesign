@@ -9,7 +9,7 @@
     <%= f.input :price_ex_vat %>
     <%= f.input :price_inc_vat %>
     <%= f.input :quantity %>
-    <%= f.input :units %>
+    <%= f.input :units, :collection => ['Meters','Litres']%>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>

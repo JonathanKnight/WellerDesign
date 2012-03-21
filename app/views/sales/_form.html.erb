@@ -1,34 +1,12 @@
-<%= form_for @sale, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @sale, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Sale</legend>
 
-    <div class="control-group">
-      <%= f.label :quantity, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :quantity, :class => 'text_field' %>
-      </div>
-    </div>
 
-    <div class="control-group">
-      <%= f.label :price_ex_vat, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :price_ex_vat, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :price_inc_vat, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :price_inc_vat, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :invoice_id, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.number_field :invoice_id, :class => 'number_field' %>
-      </div>
-    </div>
+    <%= f.input :quantity %>
+    <%= f.input :price_ex_vat %>
+    <%= f.input :price_inc_vat %>
+    
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>

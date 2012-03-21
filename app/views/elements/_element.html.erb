@@ -7,7 +7,11 @@
       <td><%= element.value.map{ |x| number_to_currency(x)}.join(" / ") %></td>
       <td><%= ihelper element.due_at %></td>
       <td><%= ihelper element.completed_at %></td>
-      <td><%= element.purchase %></td>
+      <% if element.purchase %>
+      <td><%= ihelper element.purchase.created_at %></td>
+      <% else %>
+      <td></td>
+      <% end %>
       <td><%= ihelper element.deleted_at %></td>
         <% if element.purchase.nil? %>
         <td>
@@ -16,9 +20,12 @@
           <%= link_to 'Edit', edit_element_path(element), :class => 'btn btn-mini' %>
           <%= link_to 'Destroy', element_path(element), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
         </td>
+        <% elsif element.completed_at.nil? %>
+        <td>
+          <%= link_to 'Completed', purchase_path(element.purchase.id, :purchase => {:completed_at => Time.now}), :method => :put, :class => 'btn btn-primary btn-mini' %>       
+        </td>
         <% else %>
         <td>
-          <%= link_to 'Completed', purchase_path(element.purchase, :completed_at => Time.now), :class => 'btn btn-primary btn-mini' %>       
         </td>
         <% end %>
     </tr>

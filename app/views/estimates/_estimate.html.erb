@@ -6,7 +6,7 @@
       <td><%= estimate.sale %></td>
       <% if estimate.finished %>
       <td>
-      <%= link_to 'Sell', new_sale_path(:estimate_id => estimate.id, :quantity => estimate.quantity,:price_ex_vat => estimate.price_ex_vat, :price_inc_vat => estimate.price_inc_vat),
+      <%= link_to 'Sell', new_sale_path(:estimate_id => estimate.id, :quantity => estimate.quantity,:price_ex_vat => estimate.price_ex_vat*estimate.room.job.markup, :price_inc_vat => estimate.price_inc_vat*estimate.room.job.markup),
             :class => 'btn btn-mini btn-primary' %>
       <%= link_to 'Edit', edit_estimate_path(estimate), :class => 'btn btn-mini' %>
        </td>

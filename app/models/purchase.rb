@@ -2,12 +2,6 @@ class Purchase < ActiveRecord::Base
 
   attr_accessible :element_id, :duedate, :quantity, :price_ex_vat, :price_inc_vat, :completed_at, :purchase_order_id
   belongs_to :element
-  
-  
-  
-  
-  
-  
   belongs_to :purchase_order
   def supplier
     @supplier = Supplier.joins(:items => {:elements => :purchase}).where(:purchases => {:purchase_id => id})

@@ -17,7 +17,7 @@ class Estimate < ActiveRecord::Base
   
   def price_ex_vat
     if self.elements.count == 1
-      self.elements.first.price_ex_vat
+      self.elements.first.item.price_ex_vat
     else
       self.value[0]
     end
@@ -25,7 +25,7 @@ class Estimate < ActiveRecord::Base
   
   def price_inc_vat
     if self.elements.count == 1
-      self.elements.first.price_inc_vat
+      self.elements.first.item.price_inc_vat
     else
       self.value[1]
     end

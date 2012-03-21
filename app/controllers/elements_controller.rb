@@ -11,7 +11,7 @@ class ElementsController < ApplicationController
     @element = Element.new
     @element.estimate_id = params[:estimate_id]
     @element.item_id = params[:item_id]
-    @element.due_at = nil
+    @element.due_at = 30.days.from_now
     @element.completed_at = nil
     @element.deleted_at = nil
   end
@@ -19,7 +19,7 @@ class ElementsController < ApplicationController
   def create
     @element = Element.new(params[:element])
     if @element.save
-      redirect_to elements_url, :notice => "Successfully created element."
+      redirect_to @element.estimate, :notice => "Successfully created element."
     else
       render :new
     end
@@ -32,7 +32,7 @@ class ElementsController < ApplicationController
   def update
     @element = Element.find(params[:id])
     if @element.update_attributes(params[:element])
-      redirect_to elements_url, :notice  => "Successfully updated element."
+      redirect_to @element.estimate, :notice  => "Successfully updated element."
     else
       render :edit
     end
@@ -41,6 +41,6 @@ class ElementsController < ApplicationController
   def destroy
     @element = Element.find(params[:id])
     @element.destroy
-    redirect_to elements_url, :notice => "Successfully destroyed element."
+    redirect_to @element.estimate, :notice => "Successfully destroyed element."
   end
 end

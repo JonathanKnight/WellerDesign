@@ -32,7 +32,8 @@ class PurchasesController < ApplicationController
   def update
     @purchase = Purchase.find(params[:id])
     if @purchase.update_attributes(params[:purchase])
-      redirect_to purchases_url, :notice  => "Successfully updated purchase."
+      @purchase.element.update_attributes(:completed_at => @purchase.completed_at)
+      redirect_to @purchase.element.estimate, :notice  => "Successfully updated purchase."
     else
       render :edit
     end

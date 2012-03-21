@@ -1,26 +1,8 @@
 <h1>Purchases</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Element</th>
-      <th>Created at</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
+<%= render 'purchases/purchase_titles' %>
     <% @purchases.each do |purchase| %>
-      <tr>
-        <td><%= purchase.id %></td>
-        <td><%= link_to purchase.element_id, purchase_path(purchase) %></td>
-        <td><%= purchase.created_at %></td>
-        <td>
-          <%= link_to 'Edit', edit_purchase_path(purchase), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', purchase_path(purchase), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
+    <%= render purchase %>
     <% end %>
-  </tbody>
-</table>
+<%= render 'purchases/purchase_footer' %>
 
 <%= link_to 'New', new_purchase_path, :class => 'btn btn-primary' %>

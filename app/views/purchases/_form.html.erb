@@ -1,13 +1,12 @@
 <%= simple_form_for @purchase, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> Purchase</legend>
+    <legend><%= controller.action_name.capitalize %> Purchase <%= @purchase.element.item.supplier.name %>:<%= @purchase.element.item.name %>:<%= @purchase.element.item.code %></legend>
 
-    <%= f.association :element %>
+    <%= f.association :element, :as => :hidden %>
     <%= f.input :quantity %>
     <%= f.input :price_ex_vat %>
     <%= f.input :price_inc_vat %>
     <%= f.input :duedate, :as => :date %>
-    <%= f.input :price_inc_vat %>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>

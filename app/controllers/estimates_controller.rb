@@ -17,7 +17,7 @@ class EstimatesController < ApplicationController
   def create
     @estimate = Estimate.new(params[:estimate])
     if @estimate.save
-      redirect_to estimates_url, :notice => "Successfully created estimate."
+      redirect_to @estimate.room, :notice => "Successfully created estimate."
     else
       render :new
     end
@@ -30,7 +30,7 @@ class EstimatesController < ApplicationController
   def update
     @estimate = Estimate.find(params[:id])
     if @estimate.update_attributes(params[:estimate])
-      redirect_to estimates_url, :notice  => "Successfully updated estimate."
+      redirect_to @estimate.room, :notice  => "Successfully updated estimate."
     else
       render :edit
     end
@@ -39,6 +39,6 @@ class EstimatesController < ApplicationController
   def destroy
     @estimate = Estimate.find(params[:id])
     @estimate.destroy
-    redirect_to estimates_url, :notice => "Successfully destroyed estimate."
+    redirect_to @estimate.room, :notice => "Successfully destroyed estimate."
   end
 end

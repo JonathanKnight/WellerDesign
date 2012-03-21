@@ -5,10 +5,11 @@
     <%= f.association :estimate %>
     <%= f.association :item %>
     <%= f.input :quantity %>
-    <%= f.input :due_at, :as => :date , :value => nil%>
-    <%= f.input :completed_at, :as => :date, :value => nil %>
-    <%= f.input :deleted_at, :as => :date , :value => nil %>
-
+    <%= f.input :due_at, :as => :date,  :order => [:day,:month,:year] %>
+    <% if controller.action_name != 'new' %>
+    <%= f.input :completed_at, :as => :date %>
+    <%= f.input :deleted_at, :as => :date %>
+    <% end %>
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to 'Cancel', elements_path, :class => 'btn' %>
