@@ -13,6 +13,7 @@ class EstimatesController < ApplicationController
     @estimate.room_id = params[:room_id]
     @estimate.sale_id = params[:sale_id]
     @estimate.elements.build
+    @suppliers = Supplier.order("name")
   end
 
   def create
