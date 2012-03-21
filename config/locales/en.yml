@@ -9,12 +9,22 @@ en:
   time:
     formats:
       default: "%d-%b-%y"
-  currency:
-    formats:
-      default:
-        format: "%u%n"
-        unit: "&pound;"
-            # These three are to override number.format and are optional
-        separator: "."
-        delimiter: ","
+  number:
+    currency:
+      format:
+        delimiter: ! ','
+        format: ! '%u%n'
         precision: 2
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: £
+#  number:
+#    currency:
+#      format: ! "%u%n"
+#      unit: ! "&pound;"
+#          # These three are to override number.format and are optional
+#      separator: .
+#      delimiter: ! ","
+#      precision: 2
+

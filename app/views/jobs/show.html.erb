@@ -20,10 +20,22 @@
   <%= @job.markup %>
 </p>
 
-<p>
-  <b>Value</b><br>
-  <%= @job.value.map{ |x| number_to_currency(x)}.join(" / ") %>
-</p>
+<table class="table table-bordered table-stripped table-condensed" >
+  <thead>
+    <tr>
+      <th>Job Value</th>
+      <th>Estimate Value</th>
+      <th>Purchase Value</th>
+      <th>Sale Value</th>
+      <th>Invoice Value</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr><td>Excluding VAT</td><td><%= @fullvalue[0][0] %></td><td><%= @fullvalue[1][0] %></td><td><%= @fullvalue[2][0] %></td><td><%= 0.00 %></td></tr>
+  <tr><td>Including VAT</td><td><%= @fullvalue[0][1] %></td><td><%= @fullvalue[1][1] %></td><td><%=@fullvalue[2][1] %></td><td><%= 0.00 %></td></tr>
+  </tbody>
+  </table>
+
 
 
 <h2>Rooms</h2>

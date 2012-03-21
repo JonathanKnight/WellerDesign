@@ -6,6 +6,7 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @rooms = @job.rooms
+    @fullvalue = @job.fullvalue
   end
 
   def new

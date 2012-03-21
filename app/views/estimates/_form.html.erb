@@ -5,7 +5,7 @@
     <%= f.input :name %>
     <%= f.association :room %>
     <!--<%= f.input :sale_id %>-->
-    <% f.fields_for :elements do |element_form| %>
+    <%= f.fields_for :elements do |element_form| %>
       <%= element_form.association :item %>
       <%= element_form.input :quantity %>
       <!--<%= element_form.input :due_at, :as => :date, :value => 30.days.from_now %>-->

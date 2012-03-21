@@ -48,6 +48,26 @@ class Estimate < ActiveRecord::Base
     end
     v
   end
+
+  def fullvalue
+    e = [0,0]
+    p = [0,0]
+    s = [0,0]
+    self.elements.each do |element|
+      e[0] += element.value[0]
+      e[1] += element.value[1]
+      purch = element.purchase
+      if purch
+      p[0] += purch.quantity*purch.price_ex_vat
+      p[1] += purch.quantity*purch.price_ex_vat
+      end
+    end
+    if self.sale
+    s[0] += self.sale.quantity*self.sale.price_ex_vat
+    s[1] += self.sale.quantity*self.sale.price_inc_vat
+    end
+    [e,p,s]
+  end
   
   def started
     self.elements.each do |element|
