@@ -1,3 +1,4 @@
+<% present estimate,EstimatePresenter do |estimate_presenter| %>
     <tr>
       <td><%= link_to estimate.name, estimate_path(estimate) %></td>
       <td><%= estimate.room.name %></td>
@@ -10,7 +11,7 @@
       <td></td>
       <td></td>
       <% end %>
-      <% if estimate.finished %>
+<!---      <% if estimate.finished %>
       <td>
       <%= link_to 'Sell', new_sale_path(:estimate_id => estimate.id, :quantity => estimate.quantity,:price_ex_vat => estimate.price_ex_vat*estimate.room.job.markup, :price_inc_vat => estimate.price_inc_vat*estimate.room.job.markup),
             :class => 'btn btn-mini btn-primary' %>
@@ -26,6 +27,8 @@
       <%= link_to 'Destroy', estimate_path(estimate), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>      
       </td>
       <% end %>
+-->
+    <td><%= estimate_presenter.actions %></td>
     </tr>
-
+<% end %>
 
