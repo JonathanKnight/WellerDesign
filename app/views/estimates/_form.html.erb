@@ -6,8 +6,8 @@
     <%= f.association :room %>
     <!--<%= f.input :sale_id %>-->
     <%= f.fields_for :elements do |element_form| %>
-      <%= f.simple_fields_for :suppliers , :html => {:class => 'control-group select required'} do |simple| %>
-        <div class="control-group select required">
+      <%= f.simple_fields_for :suppliers , :html => {:class => 'control-group select'} do |simple| %>
+        <div class="control-group select">
         <%= simple.label "Supplier" %>
           <div class="controls" >
             <%= simple.collection_select :supplier_id, Supplier.order(:name), :id, :name %>

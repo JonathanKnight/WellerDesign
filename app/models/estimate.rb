@@ -2,7 +2,7 @@ class Estimate < ActiveRecord::Base
 
   attr_accessible :name, :room_id, :sale_id, :elements_attributes
   belongs_to :room
-  has_many :elements
+  has_many :elements, :inverse_of => :estimate
   accepts_nested_attributes_for :elements
   belongs_to :sale
   validates_presence_of :name,:room_id

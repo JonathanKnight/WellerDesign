@@ -12,13 +12,17 @@ class EstimatesController < ApplicationController
     @estimate = Estimate.new
     @estimate.room_id = params[:room_id]
     @estimate.sale_id = params[:sale_id]
-    @estimate.elements.build
+    #@estimate.elements.build
     @suppliers = Supplier.order("name")
   end
 
   def create
+    if params[:estimate][:suppliers]
+      params[:estimate].delete :suppliers    
+    end
+    puts params
     @estimate = Estimate.new(params[:estimate])
-    if @estimate.save
+    if @estimate.save!
       redirect_to @estimate.room, :notice => "Successfully created estimate."
     else
       render :new
