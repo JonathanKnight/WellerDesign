@@ -2,8 +2,10 @@
     <tr>
       <td><%= link_to estimate.name, estimate_path(estimate) %></td>
       <td><%= estimate.room.name %></td>
-      <td><%= estimate.quantities %></td>
+      <td><%= estimate_presenter.quantities %></td>
       <td><%= ihelper estimate.value %></td>
+      <td><%= ihelper estimate.purchase_date %></td>
+      <td><%= ihelper estimate.fullvalue[1] %></td>
       <td><%= ihelper estimate_presenter.sale_created_at %></td>
       <td><%= ihelper estimate_presenter.sale_value %></td>
       <td><%= estimate_presenter.actions %></td>

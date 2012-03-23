@@ -1,7 +1,8 @@
+<% present room,RoomPresenter do |room_presenter| %>
     <tr>
       <td><%= link_to room.name, room_path(room) %></td>
       <td><%= room.job.name %></td>
-      <td><%= ihelper room.fullvalue %></td>
+      <td><%= room_presenter.value %></td>
       <td><%= room.estimates.count %></td>
       <td><%= room.width %></td>
       <td><%= room.length %></td>
@@ -18,5 +19,5 @@
       </td>
       <% end %>
     </tr>
-
+<% end %>
 

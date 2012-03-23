@@ -45,3 +45,5 @@ gem "will_paginate"
 gem "mocha", :group => :test
 gem "bcrypt-ruby", :require => 'bcrypt'
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
+gem "carrierwave"
+gem "rmagick"

@@ -40,6 +40,11 @@
   <%= @item.units %>
 </p>
 
+<p>
+  <b>Image</b>
+  <%= image_tag @item.image_url(:thumb).to_s %>
+</p>
+
 <div class="form-actions">
   <%= link_to 'Back', items_path, :class => 'btn'  %>
   <%= link_to 'Edit', edit_item_path(@item), :class => 'btn' %>

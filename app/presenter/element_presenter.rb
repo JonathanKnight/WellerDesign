@@ -21,4 +21,12 @@ class ElementPresenter < BasePresenter
     end
   end
   
+  def quantity
+    if element.item.quantity == 1
+      "#{element.quantity} #{element.item.units}"
+    else
+      "#{element.quantity} x #{element.item.quantity} #{element.item.units}"
+    end
+  end
+  
 end

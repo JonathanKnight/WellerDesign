@@ -1,4 +1,4 @@
-<%= simple_form_for @item, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @item, :html => {:multipart => true,:class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Item</legend>
 
@@ -10,6 +10,8 @@
     <%= f.input :price_inc_vat %>
     <%= f.input :quantity %>
     <%= f.input :units, :collection => ['Meters','Litres']%>
+    <%= f.input :remote_image_url %>
+    <%= f.input :reference, :as => :url %>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>

@@ -4,7 +4,8 @@
       <td><%= element.item.supplier.name %></td>
       <td><%= element.item.name %></td>
       <td><%= element.item.code %></td>
-      <td><%= element.quantity %></td>
+      <td><%= image_tag element.item.image_url(:thumb).to_s %></td>
+      <td><%= element_presenter.quantity %></td>
       <td><%= ihelper element.value %></td>
       <td><%= ihelper element_presenter.purchased_at %></td>
       <td><%= ihelper element.due_at %></td>

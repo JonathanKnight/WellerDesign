@@ -6,6 +6,7 @@ class EstimatesController < ApplicationController
   def show
     @estimate = Estimate.find(params[:id])
     @elements = @estimate.elements.page(params[:page]).per_page(15)
+    @fullvalue = @estimate.fullvalue
   end
 
   def new

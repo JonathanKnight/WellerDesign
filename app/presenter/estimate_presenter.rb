@@ -27,6 +27,18 @@ class EstimatePresenter < BasePresenter
     end
   end
   
+  def quantities
+    q = ""
+    estimate.elements.each do |element|
+      if element.item.quantity > 1
+        q+= "#{element.quantity}x#{element.item.quantity} #{element.item.units} #{element.item.supplier.name} #{element.item.name} <br />"
+      else
+        q+= "#{element.quantity} #{element.item.units} #{element.item.supplier.name} #{element.item.name} <br />"
+      end
+    end
+    q.html_safe
+  end
+  
   def sale_value
     if estimate.sale
       estimate.sale.value

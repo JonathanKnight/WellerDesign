@@ -1,14 +1,15 @@
     <tr>
-      <td><%= item.name %></td>
+      <td><%= link_to item.name, item.reference.to_s %></td>
       <td><%= item.code %></td>
       <td><%= item.supplier.name %></td>
       <td><%= item.category.name %></td>
-      <td><%= item.price_ex_vat %></td>
-      <td><%= item.price_inc_vat %></td>
+      <td><%= image_tag item.image_url(:thumb).to_s %></td>
+      <td><%= ihelper item.price_ex_vat %></td>
+      <td><%= ihelper item.price_inc_vat %></td>
       <td><%= item.quantity %></td>
       <td><%= item.units %></td>
       <td><%= link_to 'Edit', edit_item_path(item), :class => 'btn btn-mini' %></td>
-      <td><%= link_to 'Destroy', item_path(item), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %></td>
+      <!--<td><%= link_to 'Destroy', item_path(item), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %></td>-->
     </tr>
 
 

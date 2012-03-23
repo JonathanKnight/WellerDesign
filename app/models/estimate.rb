@@ -7,13 +7,13 @@ class Estimate < ActiveRecord::Base
   belongs_to :sale
   validates_presence_of :name,:room_id
   
-  def quantities
-    q = ""
-    self.elements.each do |element|
-      q+= "#{element.quantity}x#{element.item.supplier.name} #{element.item.name} #{element.item.code} "
-    end
-    q
-  end
+#  def quantities
+#    q = ""
+#    self.elements.each do |element|
+#      q+= "#{element.quantity}x#{element.item.supplier.name} #{element.item.name} #{element.item.code}"
+#    end
+#    q
+#  end
 
   def quantity
     if self.elements.count == 1
@@ -90,6 +90,10 @@ class Estimate < ActiveRecord::Base
         false
       end
     end
+  end
+  
+  def purchase_date
+    
   end
   
   def self.make_estimate(type)
