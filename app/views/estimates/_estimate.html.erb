@@ -4,31 +4,9 @@
       <td><%= estimate.room.name %></td>
       <td><%= estimate.quantities %></td>
       <td><%= ihelper estimate.value %></td>
-      <% if estimate.sale %>
-      <td><%= ihelper estimate.sale.created_at %></td>
-      <td><%= ihelper estimate.sale.value %></td>
-      <% else %>
-      <td></td>
-      <td></td>
-      <% end %>
-<!---      <% if estimate.finished %>
-      <td>
-      <%= link_to 'Sell', new_sale_path(:estimate_id => estimate.id, :quantity => estimate.quantity,:price_ex_vat => estimate.price_ex_vat*estimate.room.job.markup, :price_inc_vat => estimate.price_inc_vat*estimate.room.job.markup),
-            :class => 'btn btn-mini btn-primary' %>
-      <%= link_to 'Edit', edit_estimate_path(estimate), :class => 'btn btn-mini' %>
-       </td>
-      <% elsif estimate.started %>
-      <td>
-      <%= link_to 'Edit', edit_estimate_path(estimate), :class => 'btn btn-mini' %>
-      </td>
-      <% else %>
-      <td>
-      <%= link_to 'Edit', edit_estimate_path(estimate), :class => 'btn btn-mini' %>
-      <%= link_to 'Destroy', estimate_path(estimate), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>      
-      </td>
-      <% end %>
--->
-    <td><%= estimate_presenter.actions %></td>
+      <td><%= ihelper estimate_presenter.sale_created_at %></td>
+      <td><%= ihelper estimate_presenter.sale_value %></td>
+      <td><%= estimate_presenter.actions %></td>
     </tr>
 <% end %>
 

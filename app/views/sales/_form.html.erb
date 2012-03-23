@@ -2,7 +2,9 @@
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Sale</legend>
 
-
+    <%= render 'estimates/estimate_titles' %>
+    <%= render @estimate %>
+    <%= render 'estimates/estimate_footer' %>
     <%= f.input :quantity %>
     <%= f.input :price_ex_vat %>
     <%= f.input :price_inc_vat %>

@@ -1,33 +1,16 @@
+<% present element,ElementPresenter do |element_presenter| %>
     <tr>
-      <td><%= element.estimate.name %></td>
+      <td><%= link_to element.estimate.name, element_path(element) %></td>
       <td><%= element.item.supplier.name %></td>
       <td><%= element.item.name %></td>
       <td><%= element.item.code %></td>
       <td><%= element.quantity %></td>
-      <td><%= element.value.map{ |x| number_to_currency(x)}.join(" / ") %></td>
+      <td><%= ihelper element.value %></td>
+      <td><%= ihelper element_presenter.purchased_at %></td>
       <td><%= ihelper element.due_at %></td>
       <td><%= ihelper element.completed_at %></td>
-      <% if element.purchase %>
-      <td><%= ihelper element.purchase.created_at %></td>
-      <% else %>
-      <td></td>
-      <% end %>
       <td><%= ihelper element.deleted_at %></td>
-        <% if element.purchase.nil? %>
-        <td>
-          <%= link_to 'Purchase', new_purchase_path(:element_id => element.id, :quantity => element.quantity, 
-              :price_ex_vat => element.item.price_ex_vat, :price_inc_vat => element.item.price_inc_vat), :class => 'btn btn-primary btn-mini' %>       
-          <%= link_to 'Edit', edit_element_path(element), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', element_path(element), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-        </td>
-        <% elsif element.completed_at.nil? %>
-        <td>
-          <%= link_to 'Completed', purchase_path(element.purchase.id, :purchase => {:completed_at => Time.now}), :method => :put, :class => 'btn btn-primary btn-mini' %>       
-        </td>
-        <% else %>
-        <td>
-        </td>
-        <% end %>
-    </tr>
-
+      <td><%= element_presenter.actions %></td>
+  </tr>
+<% end %>
 

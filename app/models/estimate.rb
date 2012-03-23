@@ -79,12 +79,17 @@ class Estimate < ActiveRecord::Base
   end
   
   def finished
-    self.elements.each do |element|
-      if element.purchase.nil?
-        return false
+    e = self.elements.count
+    if e == 0
+      false
+    else
+      p = Estimate.where(:id => self.id).joins(:elements => :purchase).where("purchases.completed_at not null").count
+      if e == p
+        true
+      else
+        false
       end
     end
-    return true
   end
   
   def self.make_estimate(type)

@@ -20,7 +20,7 @@ update_group_select = (id_selected, id_to_change, grouped_items) ->
     $("#{id_to_change}").empty()
     
 update_group_select_obj = (id_selected, id_to_change, grouped_items) ->  
-  #console.log("Chosen #{id_selected.attr('id')}")
+
   selected_val = id_selected.val()
   selected = id_selected.children().filter("[value = '#{selected_val}']").text()
   #console.log(grouped_items)

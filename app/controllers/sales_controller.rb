@@ -12,6 +12,7 @@ class SalesController < ApplicationController
     @sale.quantity = params[:quantity]
     @sale.price_ex_vat = params[:price_ex_vat]
     @sale.price_inc_vat = params[:price_inc_vat]
+    @estimate = Estimate.find(params[:estimate_id])
     session[:estimate_id] = params[:estimate_id]
   end
 
@@ -23,7 +24,7 @@ class SalesController < ApplicationController
         @estimate.update_attributes(:sale_id => @sale.id)
         session[:estimate_id] = nil
       end
-      redirect_to @estimate.room.job, :notice => "Successfully created sale."
+      redirect_to @estimate.room, :notice => "Successfully created sale."
     else
       render :new
     end
