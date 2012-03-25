@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <b>Room</b><br>
-  <%= @estimate.room_id %>
+  <b>Job/Room</b><br>
+  <%= @estimate.room.job.client.name %> / <%= @estimate.room.job.name %> / <%= @estimate.room.name %>
 </p>
 
 <p>

@@ -6,6 +6,7 @@
     <%= f.association :item %>
     <%= f.input :quantity %>
     <%= f.input :due_at, :as => :date,  :order => [:day,:month,:year] %>
+    <%= f.input :delivery_address, :collection => @available_address %>
     <% if controller.action_name != 'new' %>
     <%= f.input :completed_at, :as => :date %>
     <%= f.input :deleted_at, :as => :date %>

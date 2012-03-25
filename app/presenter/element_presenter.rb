@@ -8,7 +8,7 @@ class ElementPresenter < BasePresenter
               :price_ex_vat => element.item.price_ex_vat, :price_inc_vat => element.item.price_inc_vat), :class => 'btn btn-primary btn-mini') +
       (h.link_to 'Edit', h.edit_element_path(element), :class => 'btn btn-mini') +
       (h.link_to 'Destroy', h.element_path(element), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger')
-    elsif element.completed_at.nil?
+    elsif element.purchase.completed_at.nil?
       (h.link_to 'Completed', h.purchase_path(element.purchase.id, :purchase => {:completed_at => Time.now}), :method => :put, :class => 'btn btn-primary btn-mini')
     else
     end
@@ -21,6 +21,12 @@ class ElementPresenter < BasePresenter
     end
   end
   
+  def completed_at
+    if element.purchase
+      element.purchase.completed_at
+    else
+    end
+  end
   def quantity
     if element.item.quantity == 1
       "#{element.quantity} #{element.item.units}"

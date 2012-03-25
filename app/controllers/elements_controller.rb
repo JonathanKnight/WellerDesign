@@ -12,6 +12,7 @@ class ElementsController < ApplicationController
     @element.estimate_id = params[:estimate_id]
     @element.item_id = params[:item_id]
     @element.due_at = 30.days.from_now
+    @available_address = @element.available_address
     @element.completed_at = nil
     @element.deleted_at = nil
   end
@@ -27,10 +28,13 @@ class ElementsController < ApplicationController
 
   def edit
     @element = Element.find(params[:id])
+    @available_address = @element.available_address
+    @available_address.push("Forwood Grange, Minchinhampton")
   end
 
   def update
     @element = Element.find(params[:id])
+
     if @element.update_attributes(params[:element])
       redirect_to @element.estimate, :notice  => "Successfully updated element."
     else

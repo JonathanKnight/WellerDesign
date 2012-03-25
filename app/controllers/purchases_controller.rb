@@ -10,10 +10,11 @@ class PurchasesController < ApplicationController
   def new
     @purchase = Purchase.new
     @purchase.element_id = params[:element_id]
-    #@element = Element.find(params[:element_id])
+    @element = Element.find(params[:element_id])
     @purchase.quantity = params[:quantity]
     @purchase.price_ex_vat = params[:price_ex_vat]
     @purchase.price_inc_vat = params[:price_inc_vat]
+    @purchase.duedate = @element.due_at
   end
 
   def create

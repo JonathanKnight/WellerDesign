@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120323140312) do
+ActiveRecord::Schema.define(:version => 20120323184014) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -33,12 +33,13 @@ ActiveRecord::Schema.define(:version => 20120323140312) do
   create_table "elements", :force => true do |t|
     t.integer  "estimate_id"
     t.integer  "item_id"
-    t.decimal  "quantity",     :precision => 8, :scale => 2
+    t.decimal  "quantity",         :precision => 8, :scale => 2
     t.datetime "due_at"
     t.datetime "completed_at"
     t.datetime "deleted_at"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+    t.text     "delivery_address"
   end
 
   add_index "elements", ["estimate_id"], :name => "index_elements_on_estimate_id"
