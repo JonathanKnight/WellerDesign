@@ -1,3 +1,4 @@
+<% present supplier,SupplierPresenter do |supplier_presenter| %>
     <tr>
       <td><%= link_to supplier.name, supplier_path(supplier) %></td>
       <td><%= supplier.email %></td>
@@ -5,13 +6,7 @@
       <td><%= supplier.items.count %></td>
       <td><%= supplier.purchaseorders.count %></td>
       <td><%= supplier.outstanding_purchases.count %></td>
-      <td>
-      <% if supplier.outstanding_purchases.count > 0 %>
-      <%= link_to "Create PO", new_purchaseorder_path(:supplier_id => supplier.id), :class => 'btn btn-mini btn-primary' %>
-      <% end %>
-      <%= link_to "Edit", edit_supplier_path(supplier),:class => 'btn btn-mini' %>
-      <%= link_to 'Destroy', supplier_path(supplier), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-      </td>    
+      <td><%= supplier_presenter.actions %></td>
     </tr>
-
+<% end %>
 

@@ -1,9 +1,14 @@
     <tr>
-      <td><%= timesheet.user.name %></td>
-      <td><%= timesheet.element.name %></td>
+      <td><%= timesheet.user.username %></td>
+      <td><%= timesheet.element.item.name %></td>
       <td><%= timesheet.description %></td>
-      <td><%= timesheet.opened_at %></td>
-      <td><%= timesheet.closed_at %></td>
+      <td><%= timesheet.element.estimate.name %></td>
+      <td><%= timesheet.element.estimate.room.name %></td>
+      <td><%= timesheet.element.estimate.room.job.name %></td>
+      <td><%= timesheet.element.estimate.room.job.client.name %></td>
+      <td><%= ihelper timesheet.opened_at, true %></td>
+      <td><%= ihelper timesheet.closed_at, true %></td>
+      <td><%= ihelper timesheet.hours, :hours %></td>
       <td><%= timesheet.chargeable %></td>
       <td><%= link_to "Edit", edit_timesheet_path(timesheet) %></td>
     </tr>

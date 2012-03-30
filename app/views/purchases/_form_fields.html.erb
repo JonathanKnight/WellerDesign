@@ -17,7 +17,7 @@
     <%= f.datetime_select :completed_at %>
   </div>
   <div class="field subform">
-    <%= f.collection_select(:purchase_order_id,Purchase_order.all, :id, :name ) %>
+    <%= f.collection_select(:purchaseorder_id,Purchase_order.all, :id, :name ) %>
   </div>
   <div class="actions subform"><%= f.link_to_remove "Remove" %></div>
 <% end %>

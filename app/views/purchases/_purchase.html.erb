@@ -1,16 +1,17 @@
+<% present purchase,PurchasePresenter do |purchase_presenter| %>
     <tr>
+      <td><%= purchase_presenter.purchaseorderlink %></td>
       <td><%= purchase.element.item.name %></td>
       <td><%= purchase.element.delivery_address %></td>
-      <td><%= purchase.duedate %></td>
+      <td><%= ihelper purchase.duedate %></td>
       <td><%= purchase.quantity %></td>
-      <td><%= purchase.price_ex_vat %></td>
-      <td><%= purchase.price_inc_vat %></td>
-      <td><%= purchase.completed_at %></td>
-      <td><%= purchase.purchase_order_id %></td>
+      <td><%= ihelper purchase.price_ex_vat %></td>
+      <td><%= ihelper purchase.price_inc_vat %></td>
+      <td><%= ihelper purchase.completed_at %></td>
       <td>  
-      <%= link_to 'Edit', edit_purchase_path(purchase), :class => 'btn btn-mini' %>
-      <%= link_to 'Destroy', purchase_path(purchase), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+      <%= purchase_presenter.actions %>
       </td>
     </tr>
+<% end %>
 
 

@@ -1,49 +1,12 @@
-<%= form_for @timesheet, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @timesheet, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Timesheet</legend>
 
-    <div class="control-group">
-      <%= f.label :user_id, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.number_field :user_id, :class => 'number_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :element_id, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.number_field :element_id, :class => 'number_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :description, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :description, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :opened_at, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.datetime_select :opened_at, :class => 'datetime_select' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :closed_at, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.datetime_select :closed_at, :class => 'datetime_select' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :chargeable, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.check_box :chargeable, :class => 'check_box' %>
-      </div>
-    </div>
-
+    <%= f.input :user_id %>
+    <%= f.input :element_id %>
+    <%= f.input :description %>
+    <%= f.input :opened_at, :as => :date_picker %>
+    <%= f.input :chargeable %>
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to 'Cancel', timesheets_path, :class => 'btn' %>

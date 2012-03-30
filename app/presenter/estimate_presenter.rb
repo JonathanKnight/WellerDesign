@@ -6,6 +6,8 @@ class EstimatePresenter < BasePresenter
     if estimate.sale      
     elsif estimate.finished
       (h.link_to 'Sell', h.new_sale_path(:estimate_id => estimate.id, :quantity => estimate.quantity,
+          :markup => estimate.room.job.markup,:purchase_price_ex_vat => estimate.price_ex_vat,
+          :purchase_price_inc_vat => estimate.price_inc_vat,
           :price_ex_vat => estimate.price_ex_vat*estimate.room.job.markup,
           :price_inc_vat => estimate.price_inc_vat*estimate.room.job.markup),
           :class => 'btn btn-mini btn-primary') + 

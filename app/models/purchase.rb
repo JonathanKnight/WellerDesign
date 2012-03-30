@@ -1,8 +1,9 @@
 class Purchase < ActiveRecord::Base
 
-  attr_accessible :element_id, :duedate, :quantity, :price_ex_vat, :price_inc_vat, :completed_at, :purchase_order_id
+  attr_accessible :element_id, :duedate, :quantity, :price_ex_vat, :price_inc_vat, :completed_at, :purchaseorder_id
   belongs_to :element
   belongs_to :purchaseorder
+  validates_presence_of :quantity,:price_ex_vat,:price_inc_vat
   
   def supplier
     @supplier = Supplier.joins(:items => {:elements => :purchase}).where(:purchases => {:purchase_id => id})
@@ -10,7 +11,7 @@ class Purchase < ActiveRecord::Base
   
   
   def self.suppliers_where_no_purchase_order
-    @suppliers = Supplier.joins(:items => {:elements => :purchase}).where(:purchases => {:purchase_order_id => nil}).where(:elements => {:deleted_at => nil}).where("items.supplier_id != ?",1).select("distinct suppliers.*")
+    @suppliers = Supplier.joins(:items => {:elements => :purchase}).where(:purchases => {:purchaseorder_id => nil}).where(:elements => {:deleted_at => nil}).where("items.supplier_id != ?",1).select("distinct suppliers.*")
   end
 
   def set_sale_fields(sale)

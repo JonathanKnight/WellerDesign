@@ -1,26 +1,18 @@
 <h1>Timesheets</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>User</th>
-      <th>Created at</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @timesheets.each do |timesheet| %>
-      <tr>
-        <td><%= timesheet.id %></td>
-        <td><%= link_to timesheet.user_id, timesheet_path(timesheet) %></td>
-        <td><%= timesheet.created_at %></td>
-        <td>
-          <%= link_to 'Edit', edit_timesheet_path(timesheet), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', timesheet_path(timesheet), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
+<h2>Open Tasks</h2>
+<%= render 'elements/element_titles' %>
+    <% @open_elements.each do |element| %>
+      <%= render element %>
+    <% end %>
+<%= render 'elements/element_footer' %>
+
+<h2>Timesheets</h2>
+<%= page_navigation_links @timesheets %>
+
+<%= render 'timesheets/timesheet_titles' %>
+    <% @timesheets.each do |timesheet| %>
+      <%= render timesheet %>
+    <% end %>
+<%= render 'timesheets/timesheet_footer' %>
 <%= link_to 'New', new_timesheet_path, :class => 'btn btn-primary' %>

@@ -2,8 +2,10 @@ class Timesheet < ActiveRecord::Base
 
   attr_accessible :user_id, :element_id, :description, :opened_at, :closed_at, :chargeable
   belongs_to :user
-  
   belongs_to :element
+  
+  validates_presence_of :user_id, :opened_at, :chargeable
+  
   def self.summary(user_id)
     if user_id
     Timesheet.where(:user_id => user_id).
@@ -52,7 +54,13 @@ class Timesheet < ActiveRecord::Base
     hours
   end
 
-  
+  def hours
+    if closed_at
+      (closed_at - opened_at)/60.0/60.0
+    else
+      nil
+    end
+  end
   
   
   

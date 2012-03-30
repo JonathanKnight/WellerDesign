@@ -9,6 +9,7 @@ en:
   time:
     formats:
       default: "%d-%b-%y"
+      long: "%d-%b-%y %H:%M"
   number:
     currency:
       format:

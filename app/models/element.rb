@@ -23,7 +23,7 @@ class Element < ActiveRecord::Base
   end
 
   def self.open_tasks
-    Element.where(:purchase_id => nil).joins(:item => :supplier).where(:suppliers => {:id =>1})
+    Element.where(:completed_at => nil).joins(:item => :supplier).where(:suppliers => {:id =>6})
   end
   
   def set_purchase_fields(purchase)

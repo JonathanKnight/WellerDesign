@@ -1,6 +1,7 @@
 class TimesheetsController < ApplicationController
   def index
-    @timesheets = Timesheet.all
+    @timesheets = Timesheet.order('created_at desc').page(params[:page]).per_page(10)
+    @open_elements = Element.open_tasks
   end
 
   def show
@@ -9,8 +10,11 @@ class TimesheetsController < ApplicationController
 
   def new
     @timesheet = Timesheet.new
-        @timesheet.user_id = params[:user_id]
-        @timesheet.element_id = params[:element_id]
+    @timesheet.user_id = params[:user_id]
+    @timesheet.element_id = params[:element_id]
+    @timesheet.opened_at = Time.now
+    @timesheet.closed_at = nil
+    @timesheet.chargeable = true
   end
 
   def create

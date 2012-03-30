@@ -46,7 +46,8 @@ class EstimatesController < ApplicationController
 
   def destroy
     @estimate = Estimate.find(params[:id])
+    @room = @estimate.room
     @estimate.destroy
-    redirect_to @estimate.room, :notice => "Successfully destroyed estimate."
+    redirect_to @room, :notice => "Successfully destroyed estimate."
   end
 end

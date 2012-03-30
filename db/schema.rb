@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120323184014) do
+ActiveRecord::Schema.define(:version => 20120330093216) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -113,18 +113,18 @@ ActiveRecord::Schema.define(:version => 20120323184014) do
   create_table "purchases", :force => true do |t|
     t.integer  "element_id"
     t.datetime "duedate"
-    t.decimal  "quantity",          :precision => 8, :scale => 2
-    t.decimal  "price_ex_vat",      :precision => 8, :scale => 2
-    t.decimal  "price_inc_vat",     :precision => 8, :scale => 2
+    t.decimal  "quantity",         :precision => 8, :scale => 2
+    t.decimal  "price_ex_vat",     :precision => 8, :scale => 2
+    t.decimal  "price_inc_vat",    :precision => 8, :scale => 2
     t.datetime "completed_at"
-    t.integer  "purchase_order_id"
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
+    t.integer  "purchaseorder_id"
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
   end
 
   add_index "purchases", ["element_id"], :name => "index_purchases_on_element_id"
   add_index "purchases", ["id"], :name => "index_purchases_on_id", :unique => true
-  add_index "purchases", ["purchase_order_id"], :name => "index_purchases_on_purchase_order_id"
+  add_index "purchases", ["purchaseorder_id"], :name => "index_purchases_on_purchase_order_id"
 
   create_table "rooms", :force => true do |t|
     t.string   "name"

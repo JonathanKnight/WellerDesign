@@ -23,15 +23,25 @@ module ApplicationHelper
     will_paginate(pages, :class => 'pagination', :inner_window => 2, :outer_window => 0, :renderer => BootstrapLinkRenderer, :previous_label => '&larr;'.html_safe, :next_label => '&rarr;'.html_safe)
   end
   
-  def ihelper(in_value)
+  def ihelper(in_value, long = false)
     if in_value.nil?
       "None"
     elsif in_value.acts_like?(:time)
-      l(in_value)
+      if long
+        l(in_value, :format => :long)
+      else
+        l(in_value)
+      end
     elsif in_value.instance_of? Array 
       in_value.map{ |x| ihelper(x)}.join("/")
     else
-      number_to_currency(in_value, :locale => 'en')
+      if long == :decimal
+        in_value.round(2)
+      elsif long == :hours
+        "#{in_value.floor}:#{((in_value-in_value.floor)*60.0).round(0)}"
+      else
+        number_to_currency(in_value, :locale => 'en')
+      end
     end
   end
   

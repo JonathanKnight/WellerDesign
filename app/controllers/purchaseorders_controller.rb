@@ -19,7 +19,7 @@ class PurchaseordersController < ApplicationController
     if @purchaseorder.save
       @purchases = Supplier.find(@purchaseorder.supplier_id).outstanding_purchases
       @purchases.each do |purchase|
-         purchase.update_attributes(:purchase_order_id => @purchaseorder.id)
+         purchase.update_attributes(:purchaseorder_id => @purchaseorder.id)
       end
       redirect_to suppliers_url, :notice => "Successfully created purchaseorder."
     else

@@ -1,14 +1,23 @@
 <%= simple_form_for @sale, :html => { :class => 'form-horizontal' } do |f| %>
-  <fieldset>
     <legend><%= controller.action_name.capitalize %> Sale</legend>
 
     <%= render 'estimates/estimate_titles' %>
     <%= render @estimate %>
     <%= render 'estimates/estimate_footer' %>
-    <%= f.input :quantity %>
+    <p>Purchase Price</p>
+    <div id="purchase_price_ex_vat"><%= ihelper @purchase_price_ex_vat %></div>
+    <div id="purchase_price_inc_vat"><%= ihelper @purchase_price_inc_vat %></div>
+  <fieldset>
 
-    <%= f.input :price_ex_vat %>
-    <%= f.input :price_inc_vat %>
+    <%= f.input :quantity %>
+    <div class="control-group decimal optional">
+    <%= f.label :markup %>
+    <div class="controls">
+    <%= f.input_field :markup, :value => @markup %>
+    </div>
+    </div>
+    <%= f.input :price_ex_vat, :as => :currency, :input_html => { :size => 10 } %>
+    <%= f.input :price_inc_vat, :as => :currency%>
     
 
     <div class="form-actions">
