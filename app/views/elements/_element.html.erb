@@ -7,9 +7,10 @@
       <td><%= image_tag element.item.image_url(:thumb).to_s %></td>
       <td><%= element_presenter.quantity %></td>
       <td><%= ihelper element.value %></td>
+      <td><%= element.delivery_address %></td>
       <td><%= ihelper element_presenter.purchased_at %></td>
       <td><%= ihelper element.due_at %></td>
-      <td><%= ihelper element.purchase.completed_at %></td>
+      <td><%= ihelper element_presenter.completed_at %></td>
       <td><%= ihelper element.deleted_at %></td>
       <td><%= element_presenter.actions %></td>
   </tr>

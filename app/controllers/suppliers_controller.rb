@@ -1,11 +1,13 @@
 class SuppliersController < ApplicationController
   def index
     @suppliers = Supplier.order("name").page(params[:page]).per_page(10)
+        logger.debug request.env["HTTP_USER_AGENT"]
   end
 
   def show
     @supplier = Supplier.find(params[:id])
     @items = @supplier.items.order("name").page(params[:page]).per_page(10)
+    @purchases = @supplier.purchases
   end
 
   def new

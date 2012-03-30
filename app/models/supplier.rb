@@ -7,7 +7,17 @@ class Supplier < ActiveRecord::Base
   accepts_nested_attributes_for :purchaseorders
   
   def outstanding_purchases
-    purchases = Purchase.where(:purchase_order_id => nil).joins(:element => :item).where(:items => {:supplier_id => self.id}).readonly(false)
+    firstelement = Element.joins(:purchase).where(:purchases => {:purchase_order_id => nil}).joins(:item).where(:items => {:supplier_id => self.id}).first
+    if firstelement
+      purchases = Purchase.where(:purchase_order_id => nil).joins(:element => :item).where(:items => {:supplier_id => self.id}).
+          where(:elements => {:delivery_address => firstelement.delivery_address}).readonly(false)
+    else
+    []
+    end
+  end
+  
+  def purchases
+    purchases = Purchase.joins(:element => :item).where(:items => {:supplier_id => self.id})   
   end
   
 end

@@ -15,6 +15,13 @@
   <%= @supplier.address %>
 </p>
 
+<%= render "purchases/purchase_titles" %>
+    <% @purchases.each do |purchase| %>
+      <%= render purchase %>
+    <% end %>
+<%= render "purchases/purchase_footer" %>
+
+
 <%= page_navigation_links @items %>
 
 <%= render "items/item_titles" %>
@@ -22,6 +29,8 @@
       <%= render item %>
     <% end %>
 <%= render "items/item_footer" %>
+
+
 
 <%= link_to 'New Item', new_item_path(:supplier_id => @supplier.id), :class => 'btn' %>
 
